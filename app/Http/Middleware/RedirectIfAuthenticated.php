@@ -23,7 +23,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if ($guard === 'cliente') {
+                    return redirect()->route('portal.index'); // si es cliente, redirige al portal
+                } else {
+                    return redirect()->route('calendario.index'); // si es usuario interno, al calendario u otra página
+                }
             }
         }
 
