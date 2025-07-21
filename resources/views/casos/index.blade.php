@@ -28,7 +28,7 @@
                     <td>{{ $caso->tipo }}</td>
                     <td>{{ \Carbon\Carbon::parse($caso->fecha_inicio)->format('d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('casos.show', $caso->id) }}" class="btn btn-sm btn-info">Ver</a>
+                        <!-- <a href="{{ route('casos.show', $caso->id) }}" class="btn btn-sm btn-info">Ver</a> -->
                         <a href="{{ route('casos.edit', $caso->id) }}" class="btn btn-sm btn-warning">Editar</a>
                         <form action="{{ route('casos.destroy', $caso->id) }}" method="POST" style="display:inline;">
                             @csrf @method('DELETE')
